@@ -2,14 +2,14 @@
  CPU 剖析
 ==========
 
-如果你从源码编译时启用了 `oprofile`_ ，那就可以剖析 Ceph 的 CPU 使用情况，详情见\ \
+如果您从源码编译时启用了 `oprofile`_ ，那就可以剖析 Ceph 的 CPU 使用情况，详情见\ \
 `安装 Oprofile`_ 。
 
 
 初始化 oprofile
 ===============
 
-你首次使用 ``oprofile`` 时要初始化，找到对应于当前运行内核的 ``vmlinux`` 映像： ::
+您首次使用 ``oprofile`` 时要初始化，找到对应于当前运行内核的 ``vmlinux`` 映像： ::
 
 	ls /boot
 	sudo opcontrol --init
@@ -23,7 +23,7 @@
 
 	opcontrol --start
 
-启动 ``oprofile`` 后，你可以运行一些 Ceph 测试。
+启动 ``oprofile`` 后，您可以运行一些 Ceph 测试。
 
 
 停止 oprofile
@@ -56,7 +56,7 @@
 
 	sudo opcontrol --reset   
 
-.. important:: 你应该分析后再重置，以免混合不同的剖析结果。
+.. important:: 您应该分析后再重置，以免混合不同的剖析结果。
 
 
 .. _oprofile: http://oprofile.sourceforge.net/about/

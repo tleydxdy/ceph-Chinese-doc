@@ -33,7 +33,7 @@ calm down, take a breath and try answering our initial troubleshooting script.
 
 **ceph -s 是否能运行并收到集群回复？**
 
-  如果答案是肯定的，那么你的集群已启动并运行着。你可以想当然地认为如果已经\
+  如果答案是肯定的，那么您的集群已启动并运行着。您可以想当然地认为如果已经\
   形成法定人数，监视器们就只会响应 ``status`` 请求。
 
   If ``ceph -s`` blocked however, without obtaining a reply from the cluster
@@ -63,17 +63,17 @@ For other specific issues, keep on reading.
 使用监视器的管理套接字
 ======================
 
-通过管理套接字，你可以用 Unix 套接字文件直接与指定守护进程交互。\
-这个文件位于你监视器的 ``run`` 目录下，默认配置时它位于 \
-``/var/run/ceph/ceph-mon.ID.asok`` ，但你要是改过就不一定在那里\
-了。如果你在那里没找到它，请看看 ``ceph.conf`` 里是否配置了其它\
+通过管理套接字，您可以用 Unix 套接字文件直接与指定守护进程交互。\
+这个文件位于您监视器的 ``run`` 目录下，默认配置时它位于 \
+``/var/run/ceph/ceph-mon.ID.asok`` ，但您要是改过就不一定在那里\
+了。如果您在那里没找到它，请看看 ``ceph.conf`` 里是否配置了其它\
 路径、或者用下面的命令获取： ::
 
 	ceph-conf --name mon.ID --show-config-value admin_socket
 
 请牢记，只有在监视器运行时管理套接字才可用。监视器正常关闭时，\
 管理套接字会被删除；如果监视器不运行了、但管理套接字还存在，就\
-说明监视器不是正常关闭的。不管怎样，监视器没在运行，你就不能使\
+说明监视器不是正常关闭的。不管怎样，监视器没在运行，您就不能使\
 用管理套接字， ``ceph`` 命令会返回类似 \
 ``Error 111: Connection Refused`` 的错误消息。
 
@@ -82,13 +82,13 @@ For other specific issues, keep on reading.
 
 	ceph --admin-daemon /var/run/ceph/ceph-mon.<id>.asok <command>
 
-对于 Dumpling 及后续版本，你可以用另一个（推荐的）命令： ::
+对于 Dumpling 及后续版本，您可以用另一个（推荐的）命令： ::
 
 	ceph daemon mon.<id> <command>
 
 ``ceph`` 工具的 ``help`` 命令会显示管理套接字支持的其它命令。请\
 仔细了解一下 ``config get`` 、 ``config show`` 、 ``mon_status`` \
-和 ``quorum_status`` 命令，在排除监视器故障时它们能给你些启发。
+和 ``quorum_status`` 命令，在排除监视器故障时它们能给您些启发。
 
 
 理解 mon_status
@@ -364,13 +364,13 @@ What should I do if there's a clock skew?
 --------------------
 
 检查防火墙配置。有些系统安装工具把 ``REJECT`` 规则加入了 ``iptables`` ，它会拒绝\
-除 ``ssh`` 以外的所有入栈连接。如果你的监视器主机有这样的 ``REJECT`` 规则，别的客\
+除 ``ssh`` 以外的所有入栈连接。如果您的监视器主机有这样的 ``REJECT`` 规则，别的客\
 户端进来的连接将遇到超时错误而不能挂载。得先找到这条拒绝客户端连入的 ``iptables`` \
-规则，例如，你要找到形似以下的规则： ::
+规则，例如，您要找到形似以下的规则： ::
 
 	REJECT all -- anywhere anywhere reject-with icmp-host-prohibited
 
-你也许还要在 Ceph 主机上增加 iptables 规则来放通 Ceph 监视器端口（即默认\
+您也许还要在 Ceph 主机上增加 iptables 规则来放通 Ceph 监视器端口（即默认\
 的 6789 端口）、和 OSD 端口（默认从 6800 到 7300 ）。例如： ::
 
 	iptables -A INPUT -m multiport -p tcp -s {ip-address}/{netmask} --dports 6789,6800:7300 -j ACCEPT
@@ -456,7 +456,7 @@ OSD 上的信息恢复监视器存储。 ::
 - **一些密钥环**\ ：所有用 ``ceph auth add`` 命令加上的 OSD 密\
   钥环都从 OSD 副本中恢复了； ``client.admin`` 密钥环也用
   ``ceph-monstore-tool`` 导入了。但是 MDS 密钥环和其它密钥环却\
-  丢失了，你也许得手动重加。
+  丢失了，您也许得手动重加。
 
 - **归置组设置**\ ：用 ``ceph pg set_full_ratio`` 和
   ``ceph pg set_nearfull_ratio`` 命令配置的 ``full ratio`` 和
