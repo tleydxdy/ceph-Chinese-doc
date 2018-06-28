@@ -2,18 +2,18 @@
  内存剖析
 ==========
 
-Ceph 监视器、 OSD 、和元数据服务器可利用 ``tcmalloc`` 生成堆栈\
-剖析，此功能依赖 ``google-perftools`` ： ::
+Ceph 监视器、 OSD 和元数据服务器可利用 ``tcmalloc`` 生成堆栈
+剖析，此功能依赖 ``google-perftools`` 请确保它已经被安装::
 
 	sudo apt-get install google-perftools
 
-剖析器会把输出保存到 ``log file`` 目录（如 ``/var/log/ceph`` ），\
-详情见\ `日志记录和调试`_\ 。剖析器日志可用 Google 性能工具来查\
-看，执行如下命令： ::
+剖析器会把输出保存到 ``log file`` 目录（如 ``/var/log/ceph`` ），
+详情见 `日志记录和调试`_ 。剖析器日志可用 Google 性能工具来查
+看，执行如下命令::
 
     google-pprof --text {path-to-daemon}  {log-path/filename}
 
-例如： ::
+例如::
 
     $ ceph tell osd.0 heap start_profiler
     $ ceph tell osd.0 heap dump
@@ -46,8 +46,8 @@ Ceph 监视器、 OSD 、和元数据服务器可利用 ``tcmalloc`` 生成堆�
      0.0   0.4%  99.2%      0.0   0.6% decode_message
      ...
 
-再次转储堆栈会生成另外一个文件，这样便于和前面的堆栈转储相比较，\
-看看这段时间发生了什么。例如： ::
+再次转储堆栈会生成另外一个文件，这样便于和前面的堆栈转储相比较，
+显示这段时间发生了什么。例如::
 
     $ google-pprof --text --base out/osd.0.profile.0001.heap \
           ceph-osd out/osd.0.profile.0003.heap
@@ -59,50 +59,50 @@ Ceph 监视器、 OSD 、和元数据服务器可利用 ``tcmalloc`` 生成堆�
 
 详情见 `Google 堆栈剖析器`_ 。
 
-安装堆栈剖析器后，启动集群就可以开始使用了。您可以在运行时启用、\
-或禁用堆栈剖析器，或确保它在持续运行。在随后的几个命令行用法中，\
-用 ``mon`` 、 ``osd`` 或 ``mds`` 替换掉 ``{daemon-type}`` ，用 \
+安装堆栈剖析器后，启动集群就可以开始使用了。您可以在运行时启用、
+或禁用堆栈剖析器，或确保它在持续运行。在随后的几个命令行用法中，
+用 ``mon`` 、 ``osd`` 或 ``mds`` 替换掉 ``{daemon-type}`` ，用 
 OSD 号、监视器或元数据服务器的 ID 替换掉 ``{daemon-id}`` 。
 
 
 启动剖析器
 ----------
 
-要启动堆栈剖析器，执行如下命令： ::
+要启动堆栈剖析器，执行如下命令::
 
 	ceph tell {daemon-type}.{daemon-id} heap start_profiler
 
-例如： ::
+例如::
 
 	ceph tell osd.1 heap start_profiler
 
-另外，在启动守护进程时若设置了 ``CEPH_HEAP_PROFILER_INIT=true`` \
+另外，在启动守护进程时若设置了 ``CEPH_HEAP_PROFILER_INIT=true`` 
 环境变量，剖析器也会启动。
 
 
 打印统计信息
 ------------
 
-用下列命令打印统计状态： ::
+用下列命令打印统计信息::
 
 	ceph  tell {daemon-type}.{daemon-id} heap stats
 
-例如： ::
+例如::
 
 	ceph tell osd.0 heap stats
 
-.. note:: 打印状态不要求剖析器在运行，也不会把堆栈分配信息转储\
+.. note:: 打印统计信息不需要剖析器在运行，也不会把堆栈分配信息转储
    到文件。
 
 
 转储堆栈信息
 ------------
 
-用下列命令转储堆栈信息： ::
+用下列命令转储堆栈信息::
 
 	ceph tell {daemon-type}.{daemon-id} heap dump
 
-例如： ::
+例如::
 
 	ceph tell mds.a heap dump
 
@@ -112,12 +112,12 @@ OSD 号、监视器或元数据服务器的 ID 替换掉 ``{daemon-id}`` 。
 释放内存
 --------
 
-要释放由 ``tcmalloc`` 分配、但不是被 Ceph 守护进程使用的内存，\
-用下列命令： ::
+要释放由 ``tcmalloc`` 分配、但是不被 Ceph 守护进程使用的内存，
+用下列命令::
 
 	ceph tell {daemon-type}{daemon-id} heap release
 
-例如： ::
+例如::
 
 	ceph tell osd.2 heap release
 
@@ -125,11 +125,11 @@ OSD 号、监视器或元数据服务器的 ID 替换掉 ``{daemon-id}`` 。
 停止剖析器
 ----------
 
-要停止堆栈剖析器，执行下列命令： ::
+要停止堆栈剖析器，执行下列命令::
 
 	ceph tell {daemon-type}.{daemon-id} heap stop_profiler
 
-例如： ::
+例如::
 
 	ceph tell osd.0 heap stop_profiler
 

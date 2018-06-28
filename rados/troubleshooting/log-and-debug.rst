@@ -286,7 +286,7 @@ Ceph 子系统概览
 ``err to stderr``
 
 :描述: 设置错误消息是否输出到 ``stderr`` 。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``true``
 
@@ -294,7 +294,7 @@ Ceph 子系统概览
 ``log to syslog``
 
 :描述: 设置日志消息是否输出到 ``syslog`` 。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -302,7 +302,7 @@ Ceph 子系统概览
 ``err to syslog``
 
 :描述: 设置错误消息是否输出到 ``syslog`` 。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -310,7 +310,7 @@ Ceph 子系统概览
 ``log flush on exit``
 
 :描述: 设置 Ceph 退出后是否回写日志文件。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``true``
 
@@ -318,7 +318,7 @@ Ceph 子系统概览
 ``clog to monitors``
 
 :描述: 设置是否把 ``clog`` 消息发送给监视器。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``true``
 
@@ -326,7 +326,7 @@ Ceph 子系统概览
 ``clog to syslog``
 
 :描述: 设置是否把 ``clog`` 输出到 syslog 。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -334,7 +334,7 @@ Ceph 子系统概览
 ``mon cluster log to syslog``
 
 :描述: 设置集群日志是否输出到 syslog 。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -390,7 +390,7 @@ OSD
 ``osd tmapput sets uses tmap``
 
 :描述: 使用 ``tmap`` ，仅用于调试。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -418,7 +418,7 @@ Filestore
 ``filestore debug omap check``
 
 :描述: 调试同步检查，非常消耗性能。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: 0
 
@@ -429,7 +429,7 @@ MDS
 ``mds debug scatterstat``
 
 :描述: Ceph 将把各种回归状态常量设置为真（仅为开发者）。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -437,7 +437,7 @@ MDS
 ``mds debug frag``
 
 :描述: Ceph 将在方便时校验目录碎片（仅为开发者）。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -445,7 +445,7 @@ MDS
 ``mds debug auth pins``
 
 :描述: debug auth pin 开关（仅为开发者）。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -453,7 +453,7 @@ MDS
 ``mds debug subtrees``
 
 :描述: debug subtree 开关（仅为开发者）。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -464,7 +464,7 @@ RADOS 网关
 ``rgw log nonexistent bucket``
 
 :描述: 记录不存在的桶？
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -480,7 +480,7 @@ RADOS 网关
 ``rgw log object name utc``
 
 :描述: 对象日志名称包含 UTC ？
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
@@ -488,7 +488,7 @@ RADOS 网关
 ``rgw enable ops log``
 
 :描述: 记录 RGW 的每一个操作。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``true``
 
@@ -496,7 +496,7 @@ RADOS 网关
 ``rgw enable usage log``
 
 :描述: 记录 RGW 的带宽使用。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``true``
 
@@ -528,7 +528,7 @@ RADOS 网关
 ``rgw intent log object name utc``
 
 :描述: 日志对象名字里包含 UTC 时间戳。
-:类型: 布尓值
+:类型: 布尔值
 :必需: 否
 :默认值: ``false``
 
