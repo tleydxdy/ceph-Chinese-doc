@@ -452,7 +452,7 @@ Old Requests 或 Slow Requests
 来自 FileStore 的事件：
 
 - commit_queued_for_journal_write: 操作已经交给 FileStore
-- write_thread_in_journal_buffer: 操作已经在日志的缓冲中并等待被写入（下一次磁盘写入）
+- write_thread_in_journal_buffer: 操作已经在日志的缓冲中并等待被写入（下一次硬盘写入）
 - journaled_completion_queued: 操作已经被记录在硬盘上并且其回调在调用队列中
 
 来自已经将数据交给本地硬盘的 OSD：
